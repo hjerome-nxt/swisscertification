@@ -1017,7 +1017,9 @@
             position: relative;
             z-index: 1;
             width: 280px;
-            height: 320px;
+            height: auto;
+            max-height: 320px;
+            object-fit: contain;
             filter: drop-shadow(0 20px 60px rgba(230, 126, 34, 0.3));
             transition: transform 0.4s ease;
         }
@@ -2041,28 +2043,7 @@
                 <div class="seal-visual">
                     <div class="seal-showcase">
                         <div class="seal-glow"></div>
-                        <svg class="seal-image" viewBox="0 0 300 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Outer shield shape -->
-                            <path d="M150 10 L280 50 C280 50 285 180 280 220 C270 280 200 320 150 335 C100 320 30 280 20 220 C15 180 20 50 20 50 L150 10Z" fill="#E67E22" stroke="#E67E22" stroke-width="2"/>
-                            <!-- Inner shield border -->
-                            <path d="M150 25 L265 60 C265 60 270 175 265 210 C256 262 193 298 150 312 C107 298 44 262 35 210 C30 175 35 60 35 60 L150 25Z" fill="#E67E22" stroke="white" stroke-width="6"/>
-                            <!-- Student Wellness curved text -->
-                            <defs>
-                                <path id="curve-top" d="M60 100 Q150 50 240 100" fill="none"/>
-                            </defs>
-                            <text font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" letter-spacing="4">
-                                <textPath href="#curve-top" startOffset="50%" text-anchor="middle">STUDENT WELLNESS</textPath>
-                            </text>
-                            <!-- Icon - person with caring hand -->
-                            <circle cx="150" cy="130" r="20" fill="#c8e6c9" opacity="0.9"/>
-                            <path d="M120 175 Q115 155 130 150 Q145 145 150 155 Q155 145 170 150 Q185 155 180 175 Q175 195 150 200 Q125 195 120 175Z" fill="#a5d6a7" opacity="0.9"/>
-                            <!-- SWISS text -->
-                            <text x="150" y="240" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="6">SWISS</text>
-                            <!-- Institutional Safety Standards -->
-                            <text x="150" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" letter-spacing="1" opacity="0.9">Institutional Safety Standards</text>
-                            <!-- My Safe Spaces script -->
-                            <text x="150" y="295" font-family="Georgia, serif" font-size="16" fill="white" text-anchor="middle" font-style="italic" opacity="0.8">My Safe Spaces</text>
-                        </svg>
+                        <img class="seal-image" src="SWISS_Logo4.png" alt="SWISS Certification Seal - Student Wellness Institutional Safety Standards">
                     </div>
                     <div class="seal-badge-row">
                         <div class="seal-mini-badge">
@@ -2232,7 +2213,7 @@
                 </ul>
 
                 <div class="pricing-cta">
-                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Pricing%20Request" class="btn btn-primary">
+                    <a href="/cdn-cgi/l/email-protection#e19296889292a18c9892808784929180828492cf8e9386de9294838b848295dcb2b6a8b2b2c4d3d1a2849395888788828095888e8fc4d3d1b1938882888f86c4d3d1b3849094849295" class="btn btn-primary">
                         Request Pricing
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2253,7 +2234,7 @@
                 <p class="section-subtitle">Schedule a 30-minute discovery call to assess your school's needs and create a customized implementation roadmap.</p>
                 
                 <div class="cta-buttons">
-                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Inquiry" class="btn btn-primary">
+                    <a href="/cdn-cgi/l/email-protection#d1a2a6b8a2a291bca8a2b0b7b4a2a1b0b2b4a2ffbea3b6eea2a4b3bbb4b2a5ec8286988282f4e3e192b4a3a5b8b7b8b2b0a5b8bebff4e3e198bfa0a4b8a3a8" class="btn btn-primary">
                         Schedule Discovery Call
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2265,12 +2246,12 @@
                 </div>
 
                 <div class="cta-contact">
-                    <a href="mailto:swiss@mysafespaces.org" class="cta-contact-item">
+                    <a href="/cdn-cgi/l/email-protection#c3b0b4aab0b083aebab0a2a5a6b0b3a2a0a6b0edacb1a4" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        swiss@mysafespaces.org
+                        <span class="__cf_email__" data-cfemail="fa898d938989ba9783899b9c9f898a9b999f89d495889d">[email&#160;protected]</span>
                     </a>
                     <a href="tel:+918062689525" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2309,7 +2290,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
@@ -2347,15 +2328,4 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
-
-        // Observe elements for scroll animations
-        document.querySelectorAll('.crisis-stat, .requirement-card, .benefit-card, .evidence-metric').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+        },
