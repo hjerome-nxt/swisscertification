@@ -165,7 +165,6 @@
             align-items: center;
             position: relative;
             background: linear-gradient(135deg, var(--cream) 0%, var(--white) 50%, var(--cream-dark) 100%);
-            overflow: hidden;
         }
 
         .hero::before {
@@ -361,17 +360,18 @@
             align-items: center;
             gap: 12px;
             animation: float 6s ease-in-out infinite;
+            z-index: 10;
         }
 
         .hero-floating-1 {
-            top: -20px;
-            right: -40px;
+            top: -30px;
+            right: -30px;
             animation-delay: 0s;
         }
 
         .hero-floating-2 {
-            bottom: 40px;
-            left: -60px;
+            bottom: -30px;
+            left: -30px;
             animation-delay: 2s;
         }
 
@@ -1589,7 +1589,7 @@
                         SWISS Certification transforms every teacher into a trained gatekeeper—equipped to recognize distress, respond appropriately, and protect student wellbeing.
                     </p>
                     <div class="hero-ctas">
-                        <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Discovery%20Call" class="btn btn-primary">
+                        <a href="/cdn-cgi/l/email-protection#780b0f110b0b3815010b191e1d0b08191b1d0b56170a1f470b0d1a121d1b0c452b2f312b2b5d4a483b1d0a0c111e111b190c1117165d4a483c110b1b170e1d0a015d4a483b191414" class="btn btn-primary">
                             Schedule Discovery Call
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2205,7 +2205,7 @@
                 </ul>
 
                 <div class="pricing-cta">
-                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Pricing%20Request" class="btn btn-primary">
+                    <a href="/cdn-cgi/l/email-protection#c0b3b7a9b3b380adb9b3a1a6a5b3b0a1a3a5b3eeafb2a7ffb3b5a2aaa5a3b4fd9397899393e5f2f083a5b2b4a9a6a9a3a1b4a9afaee5f2f090b2a9a3a9aea7e5f2f092a5b1b5a5b3b4" class="btn btn-primary">
                         Request Pricing
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2226,7 +2226,7 @@
                 <p class="section-subtitle">Schedule a 30-minute discovery call to assess your school's needs and create a customized implementation roadmap.</p>
                 
                 <div class="cta-buttons">
-                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Discovery%20Call" class="btn btn-primary">
+                    <a href="/cdn-cgi/l/email-protection#e89b9f819b9ba885919b898e8d9b98898b8d9bc6879a8fd79b9d8a828d8b9cd5bbbfa1bbbbcddad8ab8d9a9c818e818b899c818786cddad8ac819b8b879e8d9a91cddad8ab898484" class="btn btn-primary">
                         Schedule Discovery Call
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2235,12 +2235,12 @@
                 </div>
 
                 <div class="cta-contact">
-                    <a href="mailto:swiss@mysafespaces.org" class="cta-contact-item">
+                    <a href="/cdn-cgi/l/email-protection#017276687272416c78726067647271606264722f6e7366" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        swiss@mysafespaces.org
+                        <span class="__cf_email__" data-cfemail="8efdf9e7fdfdcee3f7fdefe8ebfdfeefedebfda0e1fce9">[email&#160;protected]</span>
                     </a>
                     <a href="tel:+918062689525" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2279,7 +2279,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
@@ -2299,22 +2299,4 @@
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        },
+                   
