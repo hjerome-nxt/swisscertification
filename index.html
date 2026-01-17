@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWISS Certification | Student Wellness Institutional Safety Standards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B3A5F;
+            --navy-deep: #0f2744;
+            --navy-light: #264a73;
+            --orange: #E67E22;
+            --orange-light: #f5a54a;
+            --orange-glow: rgba(230, 126, 34, 0.15);
+            --cream: #FDF8F3;
+            --cream-dark: #f5ede3;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-400: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-800: #343a40;
+            --success: #27ae60;
+            --font-display: 'Crimson Pro', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 600px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 40px rgba(27, 58, 95, 0.08);
+            padding: 12px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .nav-logo-text {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--navy);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--navy-deep) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 50%, var(--cream-dark) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, var(--orange-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-title span {
+            color: var(--orange);
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--orange-glow);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            color: white;
+            box-shadow: 0 8px 32px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(230, 126, 34, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--navy);
+            border: 2px solid var(--gray-200);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--navy);
+            background: var(--navy);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.3s both;
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 24px 80px rgba(27, 58, 95, 0.12);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .hero-stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 24px;
+            background: var(--gray-100);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            background: var(--orange-glow);
+            transform: translateY(-4px);
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.4;
+        }
+
+        .hero-floating {
+            position: absolute;
+            background: var(--white);
+            padding: 16px 24px;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(27, 58, 95, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-floating-1 {
+            top: -20px;
+            right: -40px;
+            animation-delay: 0s;
+        }
+
+        .hero-floating-2 {
+            bottom: 40px;
+            left: -60px;
+            animation-delay: 2s;
+        }
+
+        .hero-floating-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-floating-icon.orange {
+            background: var(--orange-glow);
+            color: var(--orange);
+        }
+
+        .hero-floating-icon.navy {
+            background: rgba(27, 58, 95, 0.1);
+            color: var(--navy);
+        }
+
+        .hero-floating-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .hero-floating-text span {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--gray-600);
+        }
+
+        /* Crisis Section */
+        .crisis {
+            background: var(--navy-deep);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crisis::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .crisis-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .crisis .section-label {
+            color: var(--orange-light);
+        }
+
+        .crisis .section-title {
+            color: var(--white);
+        }
+
+        .crisis .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .crisis-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .crisis-stat {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .crisis-stat:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-8px);
+            border-color: var(--orange);
+        }
+
+        .crisis-stat-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--orange-glow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .crisis-stat-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--orange);
+        }
+
+        .crisis-stat-number {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .crisis-stat-label {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 16px;
+        }
+
+        .crisis-stat-detail {
+            font-size: 13px;
+            color: var(--orange-light);
+            font-weight: 600;
+        }
+
+        .crisis-quote {
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--orange);
+            padding: 40px;
+            border-radius: 0 20px 20px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .crisis-quote p {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-style: italic;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .crisis-quote cite {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: normal;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--cream);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .problem-visual {
+            position: relative;
+        }
+
+        .problem-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 16px 60px rgba(27, 58, 95, 0.08);
+        }
+
+        .problem-diagram {
+            text-align: center;
+        }
+
+        .problem-diagram-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 32px;
+        }
+
+        .problem-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pyramid-level {
+            background: var(--gray-100);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: all 0.3s ease;
+        }
+
+        .pyramid-level:nth-child(1) { width: 60%; }
+        .pyramid-level:nth-child(2) { width: 75%; }
+        .pyramid-level:nth-child(3) { width: 90%; }
+        .pyramid-level:nth-child(4) {
+            width: 100%;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            color: white;
+            font-weight: 700;
+            padding: 20px;
+        }
+
+        .pyramid-arrow {
+            font-size: 20px;
+            color: var(--orange);
+            margin: 4px 0;
+        }
+
+        .problem-highlight {
+            margin-top: 32px;
+            padding: 24px;
+            background: var(--orange-glow);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .problem-highlight p {
+            font-size: 15px;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .problem-highlight strong {
+            color: var(--orange);
+        }
+
+        .problem-content .section-subtitle {
+            margin-bottom: 40px;
+        }
+
+        .problem-list {
+            list-style: none;
+        }
+
+        .problem-list li {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .problem-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .problem-list-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--orange-glow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .problem-list-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--orange);
+        }
+
+        .problem-list-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .problem-list-content p {
+            font-size: 15px;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--white);
+        }
+
+        .solution-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .solution-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .requirement-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .requirement-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(230, 126, 34, 0.15);
+        }
+
+        .requirement-number {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .requirement-icon {
+            width: 72px;
+            height: 72px;
+            margin: 16px auto 24px;
+            background: var(--gray-100);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .requirement-card:hover .requirement-icon {
+            background: var(--orange-glow);
+        }
+
+        .requirement-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--navy);
+            transition: color 0.3s ease;
+        }
+
+        .requirement-card:hover .requirement-icon svg {
+            color: var(--orange);
+        }
+
+        .requirement-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .requirement-duration {
+            font-size: 13px;
+            color: var(--orange);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .requirement-description {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Evidence Section */
+        .evidence {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .evidence-content .section-subtitle {
+            margin-bottom: 40px;
+        }
+
+        .evidence-source {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.06);
+            margin-bottom: 16px;
+        }
+
+        .evidence-source-logo {
+            width: 56px;
+            height: 56px;
+            background: var(--navy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .evidence-source-logo svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .evidence-source-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .evidence-source-text p {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .evidence-visual {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .evidence-metric {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(27, 58, 95, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .evidence-metric:hover {
+            transform: translateY(-4px);
+        }
+
+        .evidence-metric-value {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .evidence-metric-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .evidence-metric-detail {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--white);
+        }
+
+        .benefits-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background: var(--gray-100);
+            border-radius: 20px;
+            padding: 40px 32px;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            background: var(--white);
+            box-shadow: 0 16px 60px rgba(27, 58, 95, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 24px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-icon.students {
+            background: linear-gradient(135deg, #3498db 0%, #5dade2 100%);
+        }
+
+        .benefit-icon.teachers {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+
+        .benefit-icon.schools {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+        }
+
+        .benefit-icon.parents {
+            background: linear-gradient(135deg, #9b59b6 0%, #bb8fce 100%);
+        }
+
+        .benefit-icon svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            font-size: 14px;
+            color: var(--gray-600);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .benefit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Accreditation Section */
+        .accreditation {
+            background: var(--navy-deep);
+            padding: 80px 0;
+        }
+
+        /* Certification Seal Section */
+        .seal {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 50%, var(--cream-dark) 100%);
+            overflow: hidden;
+        }
+
+        .seal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .seal-visual {
+            text-align: center;
+        }
+
+        .seal-showcase {
+            position: relative;
+            display: inline-block;
+            padding: 40px;
+        }
+
+        .seal-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        .seal-image {
+            position: relative;
+            z-index: 1;
+            width: 280px;
+            height: 320px;
+            filter: drop-shadow(0 20px 60px rgba(230, 126, 34, 0.3));
+            transition: transform 0.4s ease;
+        }
+
+        .seal-showcase:hover .seal-image {
+            transform: scale(1.05);
+        }
+
+        .seal-badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .seal-mini-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 10px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .seal-mini-badge svg {
+            width: 18px;
+            height: 18px;
+            color: var(--orange);
+        }
+
+        .seal-content .section-subtitle {
+            margin-bottom: 40px;
+        }
+
+        .seal-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .seal-benefit {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .seal-benefit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(27, 58, 95, 0.1);
+        }
+
+        .seal-benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--orange-glow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .seal-benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--orange);
+        }
+
+        .seal-benefit-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .seal-benefit-text p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .accreditation-content {
+            text-align: center;
+        }
+
+        .accreditation .section-label {
+            color: var(--orange-light);
+        }
+
+        .accreditation .section-title {
+            color: var(--white);
+            font-size: clamp(28px, 4vw, 36px);
+        }
+
+        .accreditation-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .accreditation-logo {
+            background: var(--white);
+            padding: 24px 40px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .accreditation-logo:hover {
+            transform: translateY(-4px);
+        }
+
+        .accreditation-logo-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .accreditation-logo-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+            text-align: center;
+        }
+
+        .accreditation-logo-text span {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--gray-600);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--cream);
+        }
+
+        .pricing-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .pricing-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 24px 80px rgba(27, 58, 95, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--orange) 0%, var(--orange-light) 100%);
+        }
+
+        .pricing-header-inner {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .pricing-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: var(--orange-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pricing-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--orange);
+        }
+
+        .pricing-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .pricing-description {
+            font-size: 16px;
+            color: var(--gray-600);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .pricing-example {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .pricing-example-label {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pricing-amount {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .pricing-period {
+            font-size: 18px;
+            color: var(--gray-600);
+        }
+
+        .pricing-per-teacher {
+            font-size: 15px;
+            color: var(--orange);
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .pricing-includes-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .pricing-includes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .pricing-includes li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--gray-800);
+        }
+
+        .pricing-includes li::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            text-align: center;
+        }
+
+        .pricing-cta .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pricing-note {
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, var(--orange-glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta .section-label {
+            color: var(--orange-light);
+        }
+
+        .cta .section-title {
+            color: var(--white);
+        }
+
+        .cta .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .cta-contact {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cta-contact-item:hover {
+            color: var(--orange-light);
+        }
+
+        .cta-contact-item svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-deep);
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-text a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-text a:hover {
+            color: var(--orange-light);
+        }
+
+        .footer-tagline {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .problem-grid,
+            .evidence-grid,
+            .seal-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .seal-visual {
+                order: -1;
+            }
+
+            .seal-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .crisis-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .crisis-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .evidence-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-includes {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-floating {
+                display: none;
+            }
+
+            .accreditation-logos {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#" class="nav-logo">
+                    <div class="nav-logo-icon">S</div>
+                    <span class="nav-logo-text">SWISS</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#crisis">The Crisis</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#evidence">Research</a></li>
+                    <li><a href="#seal">Certification</a></li>
+                    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">CPD Accredited • UK Standards</div>
+                    <h1 class="hero-title">
+                        Building <span>Safe Schools</span>,<br>One Teacher at a Time
+                    </h1>
+                    <p class="hero-description">
+                        SWISS Certification transforms every teacher into a trained gatekeeper—equipped to recognize distress, respond appropriately, and protect student wellbeing.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#contact" class="btn btn-primary">
+                            Schedule Discovery Call
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#solution" class="btn btn-secondary">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-stat-grid">
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">1,000+</div>
+                                <div class="hero-stat-label">Hours/year teachers spend with students</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">0</div>
+                                <div class="hero-stat-label">Mental health training most teachers receive</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">4</div>
+                                <div class="hero-stat-label">Hours to certify a teacher as gatekeeper</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">12</div>
+                                <div class="hero-stat-label">Months to full school certification</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-floating hero-floating-1">
+                        <div class="hero-floating-icon orange">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="hero-floating-text">
+                            CPD Accredited
+                            <span>Provider #50828</span>
+                        </div>
+                    </div>
+                    <div class="hero-floating hero-floating-2">
+                        <div class="hero-floating-icon navy">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="hero-floating-text">
+                            Crisis Support
+                            <span>24/7 for certified schools</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crisis Section -->
+    <section class="crisis section" id="crisis">
+        <div class="container">
+            <div class="crisis-content">
+                <span class="section-label">The Urgent Reality</span>
+                <h2 class="section-title">India's Student Mental Health Crisis</h2>
+                <p class="section-subtitle">The numbers demand immediate action. Every statistic represents a life—a student who needed someone trained to recognize their distress.</p>
+                
+                <div class="crisis-stats">
+                    <div class="crisis-stat">
+                        <div class="crisis-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <div class="crisis-stat-number">13,892</div>
+                        <div class="crisis-stat-label">Student suicides in 2023</div>
+                        <div class="crisis-stat-detail">NCRB Official Data</div>
+                    </div>
+                    <div class="crisis-stat">
+                        <div class="crisis-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                        </div>
+                        <div class="crisis-stat-number">65%</div>
+                        <div class="crisis-stat-label">Increase over past decade</div>
+                        <div class="crisis-stat-detail">And rising every year</div>
+                    </div>
+                    <div class="crisis-stat">
+                        <div class="crisis-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="crisis-stat-number">1</div>
+                        <div class="crisis-stat-label">Student suicide every hour</div>
+                        <div class="crisis-stat-detail">Approximately in India</div>
+                    </div>
+                    <div class="crisis-stat">
+                        <div class="crisis-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="crisis-stat-number">44%</div>
+                        <div class="crisis-stat-label">Teachers experiencing burnout</div>
+                        <div class="crisis-stat-detail">Shukla & Trivedi, 2008</div>
+                    </div>
+                </div>
+
+                <div class="crisis-quote">
+                    <p>"No child should ever feel unheard or unseen in our schools. We owe them an environment that nurtures not just their intellect, but their emotional well-being."</p>
+                    <cite>— Ashish Sood, Delhi Education Minister, November 2025</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem section" id="problem">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-visual">
+                    <div class="problem-card">
+                        <div class="problem-diagram">
+                            <div class="problem-diagram-title">Why Teachers Must Come First</div>
+                            <div class="problem-pyramid">
+                                <div class="pyramid-level">Student Success</div>
+                                <div class="pyramid-arrow">↑</div>
+                                <div class="pyramid-level">Technology (AI, Monitoring)</div>
+                                <div class="pyramid-arrow">↑</div>
+                                <div class="pyramid-level">Student Programs (Grades 8-12)</div>
+                                <div class="pyramid-arrow">↑</div>
+                                <div class="pyramid-level">TRAINED TEACHERS ← Start Here</div>
+                            </div>
+                        </div>
+                        <div class="problem-highlight">
+                            <p><strong>Without trained teachers:</strong> Technology generates alerts no one can handle. Students ask for help from unprepared adults.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="problem-content">
+                    <span class="section-label">The Contact Hours Paradox</span>
+                    <h2 class="section-title">Teachers Are the First Line of Defense</h2>
+                    <p class="section-subtitle">Students spend more waking hours with teachers than with parents during the school week. Yet most teachers receive zero mental health training.</p>
+                    
+                    <ul class="problem-list">
+                        <li>
+                            <div class="problem-list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="problem-list-content">
+                                <h4>1,000+ Hours Annually</h4>
+                                <p>Teachers interact with students daily, making them uniquely positioned to notice behavioral changes and warning signs.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="problem-list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                            </div>
+                            <div class="problem-list-content">
+                                <h4>Trusted Relationships</h4>
+                                <p>Students often confide in teachers before parents. Teachers need the skills to respond appropriately when they do.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="problem-list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                    <line x1="12" y1="9" x2="12" y2="13"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                            </div>
+                            <div class="problem-list-content">
+                                <h4>Zero Formal Training</h4>
+                                <p>Most teacher education programs include no mental health curriculum, leaving teachers unprepared for crisis situations.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution section" id="solution">
+        <div class="container">
+            <div class="solution-header">
+                <span class="section-label">SWISS Essentials</span>
+                <h2 class="section-title">6 Core Requirements for Certification</h2>
+                <p class="section-subtitle">A comprehensive 12-month certification program that transforms your school into a psychologically safe environment.</p>
+            </div>
+
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="requirement-number">1</div>
+                    <div class="requirement-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="requirement-title">Gatekeeper Certification</h3>
+                    <div class="requirement-duration">4 Hours • Self-Paced</div>
+                    <p class="requirement-description">100% of teaching staff certified in recognizing warning signs, crisis response, and self-care. Available in English, Hindi, Tamil, and Telugu.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-number">2</div>
+                    <div class="requirement-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3 class="requirement-title">Quarterly Teacher Labs</h3>
+                    <div class="requirement-duration">2 Hours × 4 Sessions</div>
+                    <p class="requirement-description">Ongoing reinforcement covering psychological safety, burnout prevention, and difficult conversations with students.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-number">3</div>
+                    <div class="requirement-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 class="requirement-title">Policies Toolkit</h3>
+                    <div class="requirement-duration">Customized Templates</div>
+                    <p class="requirement-description">Student Wellbeing Policy, Grievance Redressal Mechanism, and Anti-Bullying protocols with teacher-student focus.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-number">4</div>
+                    <div class="requirement-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="requirement-title">Wellness Council</h3>
+                    <div class="requirement-duration">5-Member Team</div>
+                    <p class="requirement-description">Trained crisis response team with clear protocols and annual simulation exercises to maintain readiness.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-number">5</div>
+                    <div class="requirement-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3 class="requirement-title">Crisis Response</h3>
+                    <div class="requirement-duration">Rapid Deployment</div>
+                    <p class="requirement-description">Rapid Response & Recovery services when crisis arises—licensed therapists onsite within 24 hours for certified schools.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-number">6</div>
+                    <div class="requirement-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <h3 class="requirement-title">24/7 Student Support</h3>
+                    <div class="requirement-duration">Always Available</div>
+                    <p class="requirement-description">Round-the-clock helpline for students to reach out for assistance and support in moments of crisis or distress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence Section -->
+    <section class="evidence section" id="evidence">
+        <div class="container">
+            <div class="evidence-grid">
+                <div class="evidence-content">
+                    <span class="section-label">Research-Backed</span>
+                    <h2 class="section-title">Evidence-Based Training That Works</h2>
+                    <p class="section-subtitle">Our program is built on rigorous evidence from meta-analyses of randomized controlled trials, ensuring measurable outcomes.</p>
+
+                    <div class="evidence-source">
+                        <div class="evidence-source-logo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <div class="evidence-source-text">
+                            <h4>Meta-Analysis of 16 RCTs</h4>
+                            <p>Wang et al., 2025 • BMC Public Health</p>
+                        </div>
+                    </div>
+
+                    <div class="evidence-source">
+                        <div class="evidence-source-logo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4"/>
+                                <path d="M12 8h.01"/>
+                            </svg>
+                        </div>
+                        <div class="evidence-source-text">
+                            <h4>Systematic Review of 14 Studies</h4>
+                            <p>Mo et al., 2018 • Child & Adolescent Psychiatry</p>
+                        </div>
+                    </div>
+
+                    <div class="evidence-source">
+                        <div class="evidence-source-logo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <div class="evidence-source-text">
+                            <h4>Mindful Dignity Lab</h4>
+                            <p>Research Partnership • Dr. Ram Mahalingam</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evidence-visual">
+                    <div class="evidence-metric">
+                        <div class="evidence-metric-value">0.72</div>
+                        <div class="evidence-metric-label">Knowledge</div>
+                        <div class="evidence-metric-detail">Moderate-Large Effect</div>
+                    </div>
+                    <div class="evidence-metric">
+                        <div class="evidence-metric-value">0.73</div>
+                        <div class="evidence-metric-label">Confidence</div>
+                        <div class="evidence-metric-detail">Moderate-Large Effect</div>
+                    </div>
+                    <div class="evidence-metric">
+                        <div class="evidence-metric-value">0.69</div>
+                        <div class="evidence-metric-label">Preparedness</div>
+                        <div class="evidence-metric-detail">Moderate Effect</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits section" id="benefits">
+        <div class="container">
+            <div class="benefits-header">
+                <span class="section-label">Comprehensive Impact</span>
+                <h2 class="section-title">Benefits for Every Stakeholder</h2>
+                <p class="section-subtitle">SWISS Certification creates a ripple effect of safety and wellbeing across your entire school community.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon students">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">For Students</h3>
+                    <ul class="benefit-list">
+                        <li>Every teacher trained to recognize distress</li>
+                        <li>Quick crisis response when needed</li>
+                        <li>Safe, supportive learning environment</li>
+                        <li>Early intervention before crisis</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon teachers">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">For Teachers</h3>
+                    <ul class="benefit-list">
+                        <li>Confidence and competence in supporting students</li>
+                        <li>Protection through clear protocols</li>
+                        <li>Burnout prevention strategies</li>
+                        <li>CPD-accredited professional development</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon schools">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">For Schools</h3>
+                    <ul class="benefit-list">
+                        <li>Risk mitigation and liability protection</li>
+                        <li>Potential insurance benefits (10-15%)</li>
+                        <li>Enhanced reputation and trust</li>
+                        <li>SWISS Certification seal for marketing</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon parents">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">For Parents</h3>
+                    <ul class="benefit-list">
+                        <li>Peace of mind knowing school is certified</li>
+                        <li>Systematic approach to student safety</li>
+                        <li>Transparent, third-party verified standards</li>
+                        <li>Confidence in school's commitment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Seal Section -->
+    <section class="seal section" id="seal">
+        <div class="container">
+            <div class="seal-grid">
+                <div class="seal-visual">
+                    <div class="seal-showcase">
+                        <div class="seal-glow"></div>
+                        <svg class="seal-image" viewBox="0 0 300 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Outer shield shape -->
+                            <path d="M150 10 L280 50 C280 50 285 180 280 220 C270 280 200 320 150 335 C100 320 30 280 20 220 C15 180 20 50 20 50 L150 10Z" fill="#E67E22" stroke="#E67E22" stroke-width="2"/>
+                            <!-- Inner shield border -->
+                            <path d="M150 25 L265 60 C265 60 270 175 265 210 C256 262 193 298 150 312 C107 298 44 262 35 210 C30 175 35 60 35 60 L150 25Z" fill="#E67E22" stroke="white" stroke-width="6"/>
+                            <!-- Student Wellness curved text -->
+                            <defs>
+                                <path id="curve-top" d="M60 100 Q150 50 240 100" fill="none"/>
+                            </defs>
+                            <text font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" letter-spacing="4">
+                                <textPath href="#curve-top" startOffset="50%" text-anchor="middle">STUDENT WELLNESS</textPath>
+                            </text>
+                            <!-- Icon - person with caring hand -->
+                            <circle cx="150" cy="130" r="20" fill="#c8e6c9" opacity="0.9"/>
+                            <path d="M120 175 Q115 155 130 150 Q145 145 150 155 Q155 145 170 150 Q185 155 180 175 Q175 195 150 200 Q125 195 120 175Z" fill="#a5d6a7" opacity="0.9"/>
+                            <!-- SWISS text -->
+                            <text x="150" y="240" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="6">SWISS</text>
+                            <!-- Institutional Safety Standards -->
+                            <text x="150" y="265" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" letter-spacing="1" opacity="0.9">Institutional Safety Standards</text>
+                            <!-- My Safe Spaces script -->
+                            <text x="150" y="295" font-family="Georgia, serif" font-size="16" fill="white" text-anchor="middle" font-style="italic" opacity="0.8">My Safe Spaces</text>
+                        </svg>
+                    </div>
+                    <div class="seal-badge-row">
+                        <div class="seal-mini-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Verified</span>
+                        </div>
+                        <div class="seal-mini-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <span>Protected</span>
+                        </div>
+                        <div class="seal-mini-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"/>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                            </svg>
+                            <span>Certified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="seal-content">
+                    <span class="section-label">The Mark of Excellence</span>
+                    <h2 class="section-title">Display the Seal of an Institution That Meets Student Safety Standards</h2>
+                    <p class="section-subtitle">The SWISS Certification seal is more than a badge—it's a promise to parents, students, and the community that your school has met rigorous, internationally-recognized standards for student mental health and safety.</p>
+                    
+                    <div class="seal-benefits">
+                        <div class="seal-benefit">
+                            <div class="seal-benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </div>
+                            <div class="seal-benefit-text">
+                                <h4>Display at Your Campus</h4>
+                                <p>Proudly showcase the seal at your entrance, reception, and classrooms</p>
+                            </div>
+                        </div>
+                        <div class="seal-benefit">
+                            <div class="seal-benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <div class="seal-benefit-text">
+                                <h4>Feature on Your Website</h4>
+                                <p>Add the digital seal to your website and marketing materials</p>
+                            </div>
+                        </div>
+                        <div class="seal-benefit">
+                            <div class="seal-benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                            </div>
+                            <div class="seal-benefit-text">
+                                <h4>Include in Communications</h4>
+                                <p>Use in admission brochures, parent letters, and annual reports</p>
+                            </div>
+                        </div>
+                        <div class="seal-benefit">
+                            <div class="seal-benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                            </div>
+                            <div class="seal-benefit-text">
+                                <h4>Third-Party Verified</h4>
+                                <p>Parents can verify your certification status on our public registry</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accreditation Section -->
+    <section class="accreditation" id="accreditation">
+        <div class="container">
+            <div class="accreditation-content">
+                <span class="section-label">International Standards</span>
+                <h2 class="section-title">Accredited by Global Leaders in Professional Development</h2>
+                
+                <div class="accreditation-logos">
+                    <div class="accreditation-logo">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" stroke="#1B3A5F" stroke-width="4" fill="none"/>
+                            <text x="50" y="40" text-anchor="middle" fill="#1B3A5F" font-size="14" font-weight="bold">CPD</text>
+                            <text x="50" y="58" text-anchor="middle" fill="#1B3A5F" font-size="10">Standards</text>
+                            <text x="50" y="70" text-anchor="middle" fill="#1B3A5F" font-size="10">Office UK</text>
+                        </svg>
+                        <div class="accreditation-logo-text">
+                            CPD Standards Office
+                            <span>Provider #50828 • 2025-2026</span>
+                        </div>
+                    </div>
+                    <div class="accreditation-logo">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="40" stroke="#1B3A5F" stroke-width="3" fill="none"/>
+                            <path d="M50 25 L50 50 L70 50" stroke="#1B3A5F" stroke-width="3" fill="none"/>
+                            <circle cx="50" cy="50" r="8" fill="#E67E22"/>
+                        </svg>
+                        <div class="accreditation-logo-text">
+                            Mindful Dignity Lab
+                            <span>Research Partnership</span>
+                        </div>
+                    </div>
+                    <div class="accreditation-logo">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                            <path d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z" stroke="#E67E22" stroke-width="3" fill="none"/>
+                            <text x="50" y="50" text-anchor="middle" fill="#E67E22" font-size="14" font-weight="bold">SWISS</text>
+                            <text x="50" y="65" text-anchor="middle" fill="#E67E22" font-size="8">CERTIFIED</text>
+                        </svg>
+                        <div class="accreditation-logo-text">
+                            SWISS Certification
+                            <span>Third-Party Verified Standards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <span class="section-label">Investment</span>
+                <h2 class="section-title">Transparent, Value-Based Pricing</h2>
+                <p class="section-subtitle">Comprehensive certification at a fraction of the cost of a single crisis event.</p>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header-inner">
+                    <div class="pricing-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3 class="pricing-title">Customized Pricing for Your School</h3>
+                    <p class="pricing-description">Every school is unique. We'll work with you to create a certification package that fits your specific needs, size, and budget.</p>
+                </div>
+
+                <div class="pricing-includes-title">Every Package Includes</div>
+                <ul class="pricing-includes">
+                    <li>Gatekeeper Certification for all teachers</li>
+                    <li>4 Quarterly Teacher Labs (8 hours total)</li>
+                    <li>Complete Policies Toolkit</li>
+                    <li>Wellness Council setup & training</li>
+                    <li>24/7 Student Support Helpline</li>
+                    <li>Crisis Response activation</li>
+                    <li>SWISS Certification seal</li>
+                    <li>Annual compliance audit</li>
+                    <li>Dedicated implementation support</li>
+                </ul>
+
+                <div class="pricing-cta">
+                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Pricing%20Request" class="btn btn-primary">
+                        Request Pricing
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <p class="pricing-note">We'll respond within 24 hours with a customized proposal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <span class="section-label">Get Started</span>
+                <h2 class="section-title">Ready to Protect Your Students?</h2>
+                <p class="section-subtitle">Schedule a 30-minute discovery call to assess your school's needs and create a customized implementation roadmap.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Inquiry" class="btn btn-primary">
+                        Schedule Discovery Call
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="https://mysafespaces.org/webinars" class="btn btn-secondary" target="_blank">
+                        Attend Free Webinar
+                    </a>
+                </div>
+
+                <div class="cta-contact">
+                    <a href="mailto:swiss@mysafespaces.org" class="cta-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        swiss@mysafespaces.org
+                    </a>
+                    <a href="tel:+918062689525" class="cta-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        +91 80626 89525
+                    </a>
+                    <a href="https://swiss.mysafespaces.org" class="cta-contact-item" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                        swiss.mysafespaces.org
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">S</div>
+                    <div class="footer-text">
+                        SWISS Certification<br>
+                        <a href="https://mysafespaces.org">My Safe Spaces</a> • © 2025
+                    </div>
+                </div>
+                <div class="footer-tagline">
+                    "Wellbeing Where It Counts"
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.crisis-stat, .requirement-card, .benefit-card, .evidence-metric').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
