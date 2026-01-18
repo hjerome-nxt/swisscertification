@@ -89,15 +89,16 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(27, 58, 95, 0.06);
             transition: all 0.4s ease;
         }
 
         .nav.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 40px rgba(27, 58, 95, 0.08);
-            padding: 12px 0;
+            padding: 10px 0;
+            box-shadow: 0 2px 40px rgba(27, 58, 95, 0.1);
         }
 
         .nav-inner {
@@ -114,42 +115,77 @@
         }
 
         .nav-logo-img {
-            height: 44px;
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
 
         .nav-logo-text {
             font-family: var(--font-display);
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--navy);
+            padding-left: 12px;
+            border-left: 2px solid var(--orange);
         }
 
-        .nav-links {
+        .nav-center {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 32px;
             list-style: none;
         }
 
-        .nav-links a {
-            font-size: 15px;
+        .nav-center a {
+            font-size: 14px;
             font-weight: 500;
             color: var(--navy);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
+        .nav-center a:hover {
             color: var(--orange);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-sos {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .nav-sos:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+        }
+
+        .nav-sos svg {
+            width: 16px;
+            height: 16px;
         }
 
         .nav-cta {
             background: var(--navy);
             color: white !important;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s ease !important;
         }
 
@@ -1398,58 +1434,229 @@
         /* Footer */
         .footer {
             background: var(--navy-deep);
-            padding: 60px 0 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 0 0;
         }
 
-        .footer-content {
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand-col {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .footer-logo {
-            width: 40px;
+        .footer-logo-img {
             height: 40px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            border-radius: 10px;
+            width: auto;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .footer-email {
+            color: var(--orange-light);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-email:hover {
+            color: var(--orange);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .footer-text a {
             color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--orange);
+            color: white;
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .footer-text a:hover {
+        .footer-col a:hover {
             color: var(--orange-light);
         }
 
-        .footer-tagline {
-            font-family: var(--font-display);
-            font-size: 16px;
-            font-style: italic;
+        .footer-crisis {
+            background: rgba(230, 126, 34, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+
+        .footer-crisis h5 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--orange-light);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-crisis p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange-light);
+        }
+
+        .footer-newsletter {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 48px;
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-newsletter-text h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .footer-newsletter-text p {
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            gap: 12px;
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .footer-newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-newsletter-form input:focus {
+            border-color: var(--orange);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .footer-newsletter-form button {
+            padding: 14px 28px;
+            background: var(--orange);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .footer-newsletter-form button:hover {
+            background: var(--orange-light);
+            transform: translateY(-2px);
+        }
+
+        .footer-app-badge {
+            display: inline-block;
+            margin-top: 16px;
+        }
+
+        .footer-app-badge img {
+            height: 40px;
+            width: auto;
         }
 
         /* Animations */
@@ -1514,10 +1721,26 @@
             .crisis-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .nav-center {
+                gap: 20px;
+            }
+
+            .nav-center a {
+                font-size: 13px;
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-center {
+                display: none;
+            }
+
+            .nav-right {
+                gap: 12px;
+            }
+
+            .nav-cta {
                 display: none;
             }
 
@@ -1553,6 +1776,31 @@
                 flex-direction: column;
                 gap: 24px;
             }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-newsletter {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-newsletter-form {
+                max-width: 100%;
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -1562,16 +1810,25 @@
         <div class="container">
             <div class="nav-inner">
                 <a href="https://mysafespaces.org" class="nav-logo" target="_blank">
-                    <img src="My_Safe_Spaces_Logo.png" alt="My Safe Spaces" class="nav-logo-img">
+                    <img src="https://static.wixstatic.com/media/56ddd9_33b6f28e550c4d47b5769babe26a08d2~mv2.png" alt="My Safe Spaces" class="nav-logo-img">
                     <span class="nav-logo-text">SWISS</span>
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-center">
                     <li><a href="#crisis">The Crisis</a></li>
                     <li><a href="#solution">Solution</a></li>
                     <li><a href="#evidence">Research</a></li>
                     <li><a href="#seal">Certification</a></li>
-                    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                 </ul>
+                <div class="nav-right">
+                    <a href="tel:112" class="nav-sos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        SOS
+                    </a>
+                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Inquiry" class="nav-cta">Get Started</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -1589,7 +1846,7 @@
                         SWISS Certification transforms every teacher into a trained gatekeeper—equipped to recognize distress, respond appropriately, and protect student wellbeing.
                     </p>
                     <div class="hero-ctas">
-                        <a href="/cdn-cgi/l/email-protection#780b0f110b0b3815010b191e1d0b08191b1d0b56170a1f470b0d1a121d1b0c452b2f312b2b5d4a483b1d0a0c111e111b190c1117165d4a483c110b1b170e1d0a015d4a483b191414" class="btn btn-primary">
+                        <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Discovery%20Call" class="btn btn-primary">
                             Schedule Discovery Call
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2035,7 +2292,7 @@
                 <div class="seal-visual">
                     <div class="seal-showcase">
                         <div class="seal-glow"></div>
-                        <img class="seal-image" src="SWISS_Logo4.png" alt="SWISS Certification Seal - Student Wellness Institutional Safety Standards">
+                        <img class="seal-image" src="https://static.wixstatic.com/media/56ddd9_225aea89c05b465699e53a06c413da8a~mv2.png" alt="SWISS Certification Seal - Student Wellness Institutional Safety Standards">
                     </div>
                     <div class="seal-badge-row">
                         <div class="seal-mini-badge">
@@ -2205,7 +2462,7 @@
                 </ul>
 
                 <div class="pricing-cta">
-                    <a href="/cdn-cgi/l/email-protection#c0b3b7a9b3b380adb9b3a1a6a5b3b0a1a3a5b3eeafb2a7ffb3b5a2aaa5a3b4fd9397899393e5f2f083a5b2b4a9a6a9a3a1b4a9afaee5f2f090b2a9a3a9aea7e5f2f092a5b1b5a5b3b4" class="btn btn-primary">
+                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Pricing%20Request" class="btn btn-primary">
                         Request Pricing
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2226,7 +2483,7 @@
                 <p class="section-subtitle">Schedule a 30-minute discovery call to assess your school's needs and create a customized implementation roadmap.</p>
                 
                 <div class="cta-buttons">
-                    <a href="/cdn-cgi/l/email-protection#e89b9f819b9ba885919b898e8d9b98898b8d9bc6879a8fd79b9d8a828d8b9cd5bbbfa1bbbbcddad8ab8d9a9c818e818b899c818786cddad8ac819b8b879e8d9a91cddad8ab898484" class="btn btn-primary">
+                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Discovery%20Call" class="btn btn-primary">
                         Schedule Discovery Call
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2235,12 +2492,12 @@
                 </div>
 
                 <div class="cta-contact">
-                    <a href="/cdn-cgi/l/email-protection#017276687272416c78726067647271606264722f6e7366" class="cta-contact-item">
+                    <a href="mailto:swiss@mysafespaces.org" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        <span class="__cf_email__" data-cfemail="8efdf9e7fdfdcee3f7fdefe8ebfdfeefedebfda0e1fce9">[email&#160;protected]</span>
+                        swiss@mysafespaces.org
                     </a>
                     <a href="tel:+918062689525" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2264,22 +2521,112 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">S</div>
-                    <div class="footer-text">
-                        SWISS Certification<br>
-                        <a href="https://mysafespaces.org">My Safe Spaces</a> • © 2025
+            <div class="footer-main">
+                <div class="footer-brand-col">
+                    <a href="https://mysafespaces.org" target="_blank">
+                        <img src="https://static.wixstatic.com/media/56ddd9_33b6f28e550c4d47b5769babe26a08d2~mv2.png" alt="My Safe Spaces" class="footer-logo-img" style="filter: brightness(0) invert(1);">
+                    </a>
+                    <p class="footer-description">Supporting mental wellness through compassionate care, innovative AI tools, and certified professionals who truly understand you.</p>
+                    <a href="mailto:info@mysafespaces.org" class="footer-email">info@mysafespaces.org</a>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mysafe_spaces" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/mysafe_spaces" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="http://www.youtube.com/@MySafeSpaces" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/mysafespaces/" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/mysafe_spaces" target="_blank" aria-label="Twitter/X">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.mysafespaces" target="_blank" class="footer-app-badge">
+                        <img src="https://static.wixstatic.com/media/56ddd9_3d10278451d84745937b171d5287b28d~mv2.png/v1/fill/w_135,h_40,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play">
+                    </a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>My Safe Spaces</h4>
+                    <ul>
+                        <li><a href="https://mysafespaces.org/aboutus" target="_blank">About Us</a></li>
+                        <li><a href="https://mysafespaces.org/careers" target="_blank">Careers</a></li>
+                        <li><a href="https://mysafespaces.org/blog" target="_blank">Blog</a></li>
+                        <li><a href="https://mysafespaces.org/event-list" target="_blank">Events</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>For Organizations</h4>
+                    <ul>
+                        <li><a href="https://mysafespaces.org/education" target="_blank">Schools & Colleges</a></li>
+                        <li><a href="https://swiss.mysafespaces.org" target="_blank">SWISS Certification</a></li>
+                        <li><a href="https://mysafespaces.org/corporate" target="_blank">Workplace Wellness</a></li>
+                        <li><a href="https://mysafespaces.org/sessions" target="_blank">Professional Training</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Learn & Grow</h4>
+                    <ul>
+                        <li><a href="https://thrive.mysafespaces.org" target="_blank">Thrive Academy</a></li>
+                        <li><a href="https://mysafespaces.org/webinars-recordings" target="_blank">Webinars</a></li>
+                        <li><a href="https://mysafespaces.org/digitalmaze" target="_blank">On Social Media</a></li>
+                        <li><a href="https://mysafespaces.org/blog" target="_blank">Blog</a></li>
+                    </ul>
+
+                    <div class="footer-crisis">
+                        <h5>Crisis Support (India)</h5>
+                        <p>112 for unified emergency<br>
+                        TeleMANAS: 14416 | 1-800-891-4416</p>
                     </div>
                 </div>
-                <div class="footer-tagline">
-                    "Wellbeing Where It Counts"
+            </div>
+
+            <div class="footer-newsletter">
+                <div class="footer-newsletter-text">
+                    <h4>Subscribe to our newsletter</h4>
+                    <p>Stay updated on mental health resources and school safety news</p>
+                </div>
+                <form class="footer-newsletter-form" action="https://mysafespaces.org" method="get">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2026 MySafeSpaces. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="https://mysafespaces.org/privacy-policy" target="_blank">Privacy Policy</a>
+                    <a href="https://mysafespaces.org/terms-and-conditions" target="_blank">Terms & Conditions</a>
+                    <a href="https://mysafespaces.org/accessibility-statement-1" target="_blank">Refund Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
