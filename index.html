@@ -1802,6 +1802,329 @@
                 justify-content: center;
             }
         }
+
+        /* Parent Voices Section */
+        .parent-voices {
+            background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parent-voices::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E67E22' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10S0 14.5 0 20s4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10v10h10z'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .parent-voices-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .parent-voices-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .survey-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            border: 1px solid var(--gray-200);
+        }
+
+        .survey-badge svg {
+            width: 20px;
+            height: 20px;
+            color: var(--orange);
+        }
+
+        .parent-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .parent-stat-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(27, 58, 95, 0.08);
+            border: 1px solid rgba(27, 58, 95, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parent-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange) 0%, var(--orange-light) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .parent-stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 60px rgba(230, 126, 34, 0.15);
+        }
+
+        .parent-stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .parent-stat-value {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .parent-stat-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .parent-stat-sublabel {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        .testimonials-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 12px 48px rgba(27, 58, 95, 0.1);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(27, 58, 95, 0.15);
+        }
+
+        .testimonial-quote-icon {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            background: var(--orange-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-quote-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--orange);
+        }
+
+        .testimonial-text {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-avatar svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .testimonial-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .testimonial-info p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .schools-represented {
+            text-align: center;
+            padding: 32px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(27, 58, 95, 0.06);
+            border: 1px solid rgba(27, 58, 95, 0.06);
+        }
+
+        .schools-represented-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .schools-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .school-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            padding: 8px 16px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .school-name:hover {
+            background: var(--orange-glow);
+            color: var(--orange);
+        }
+
+        .critical-insight-banner {
+            margin-top: 48px;
+            padding: 32px 40px;
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .critical-insight-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--orange);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .critical-insight-icon svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        .critical-insight-content h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--orange-light);
+            margin-bottom: 8px;
+        }
+
+        .critical-insight-content p {
+            font-size: 18px;
+            color: white;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .critical-insight-content strong {
+            color: var(--orange-light);
+        }
+
+        @media (max-width: 1024px) {
+            .parent-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .parent-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .parent-stat-value {
+                font-size: 48px;
+            }
+
+            .critical-insight-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .schools-list {
+                gap: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1817,6 +2140,7 @@
                     <li><a href="#crisis">The Crisis</a></li>
                     <li><a href="#solution">Solution</a></li>
                     <li><a href="#evidence">Research</a></li>
+                    <li><a href="#parent-voices">Parents</a></li>
                     <li><a href="#seal">Certification</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                 </ul>
@@ -1843,7 +2167,7 @@
                         Building <span>Safe Schools</span>,<br>One Teacher at a Time
                     </h1>
                     <p class="hero-description">
-                        SWISS Certification transforms every teacher into a trained gatekeeper—equipped to recognize distress, respond appropriately, and protect student wellbeing.
+                        SWISS Certification transforms every teacher into a trained gatekeeper"”equipped to recognize distress, respond appropriately, and protect student wellbeing.
                     </p>
                     <div class="hero-ctas">
                         <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Discovery%20Call" class="btn btn-primary">
@@ -1912,7 +2236,7 @@
             <div class="crisis-content">
                 <span class="section-label">The Urgent Reality</span>
                 <h2 class="section-title">India's Student Mental Health Crisis</h2>
-                <p class="section-subtitle">The numbers demand immediate action. Every statistic represents a life—a student who needed someone trained to recognize their distress.</p>
+                <p class="section-subtitle">The numbers demand immediate action. Every statistic represents a life"”a student who needed someone trained to recognize their distress.</p>
                 
                 <div class="crisis-stats">
                     <div class="crisis-stat">
@@ -1964,7 +2288,7 @@
 
                 <div class="crisis-quote">
                     <p>"No child should ever feel unheard or unseen in our schools. We owe them an environment that nurtures not just their intellect, but their emotional well-being."</p>
-                    <cite>— Ashish Sood, Delhi Education Minister, November 2025</cite>
+                    <cite>"” Ashish Sood, Delhi Education Minister, November 2025</cite>
                 </div>
             </div>
         </div>
@@ -2118,7 +2442,7 @@
                     </div>
                     <h3 class="requirement-title">Crisis Response</h3>
                     <div class="requirement-duration">Rapid Deployment</div>
-                    <p class="requirement-description">Rapid Response & Recovery services when crisis arises—licensed therapists onsite within 24 hours for certified schools.</p>
+                    <p class="requirement-description">Rapid Response & Recovery services when crisis arises"”licensed therapists onsite within 24 hours for certified schools.</p>
                 </div>
 
                 <div class="requirement-card">
@@ -2285,6 +2609,117 @@
         </div>
     </section>
 
+    <!-- Parent Voices Section -->
+    <section class="parent-voices section" id="parent-voices">
+        <div class="container">
+            <div class="parent-voices-header">
+                <div class="survey-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11l3 3L22 4"/>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </svg>
+                    Focus Group Survey • January 2026
+                </div>
+                <span class="section-label">What Parents Say</span>
+                <h2 class="section-title">100% of Parents Support Mandatory Training</h2>
+                <p class="section-subtitle">Real insights from mothers of teenagers at leading Gurgaon schools reveal overwhelming demand for systematic mental health training in schools.</p>
+            </div>
+
+            <div class="parent-stats-grid">
+                <div class="parent-stat-card">
+                    <div class="parent-stat-value">71%</div>
+                    <div class="parent-stat-label">Extremely Concerned</div>
+                    <div class="parent-stat-sublabel">about student mental health</div>
+                </div>
+                <div class="parent-stat-card">
+                    <div class="parent-stat-value">100%</div>
+                    <div class="parent-stat-label">Support SWISS</div>
+                    <div class="parent-stat-sublabel">even if it takes academic time</div>
+                </div>
+                <div class="parent-stat-card">
+                    <div class="parent-stat-value">85%</div>
+                    <div class="parent-stat-label">Would Increase Trust</div>
+                    <div class="parent-stat-sublabel">in school safety protocols</div>
+                </div>
+                <div class="parent-stat-card">
+                    <div class="parent-stat-value">100%</div>
+                    <div class="parent-stat-label">Rate High Priority</div>
+                    <div class="parent-stat-sublabel">for mandatory staff training</div>
+                </div>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">"The topic is not discussed at all in schools. Student-teacher ratio impacts relationships—there are no 1-on-1 interactions where a struggling child might open up."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Mother of Teenager</h4>
+                                <p>DPS Vasant Kunj, Delhi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">"It should start very young, from Grade 4, so that it is normalised. Mental health conversations should be as routine as any other awareness camp in schools."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Mother of Teenager</h4>
+                                <p>DPS Gurugram, Haryana</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schools-represented">
+                    <div class="schools-represented-label">Schools Represented in Survey</div>
+                    <div class="schools-list">
+                        <span class="school-name">DPS Gurugram</span>
+                        <span class="school-name">DPS Vasant Kunj</span>
+                        <span class="school-name">Shiv Nadar School</span>
+                        <span class="school-name">DPS 45</span>
+                    </div>
+                </div>
+
+                <div class="critical-insight-banner">
+                    <div class="critical-insight-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <div class="critical-insight-content">
+                        <h4>Critical Insight</h4>
+                        <p><strong>86% of parents believe</strong> that "Fear of Saying the Wrong Thing" prevents teachers from addressing suicide with students. SWISS training gives teachers the confidence and skills they need.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Certification Seal Section -->
     <section class="seal section" id="seal">
         <div class="container">
@@ -2320,7 +2755,7 @@
                 <div class="seal-content">
                     <span class="section-label">The Mark of Excellence</span>
                     <h2 class="section-title">Display the Seal of an Institution That Meets Student Safety Standards</h2>
-                    <p class="section-subtitle">The SWISS Certification seal is more than a badge—it's a promise to parents, students, and the community that your school has met rigorous, internationally-recognized standards for student mental health and safety.</p>
+                    <p class="section-subtitle">The SWISS Certification seal is more than a badge"”it's a promise to parents, students, and the community that your school has met rigorous, internationally-recognized standards for student mental health and safety.</p>
                     
                     <div class="seal-benefits">
                         <div class="seal-benefit">
