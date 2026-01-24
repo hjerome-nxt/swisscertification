@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntellicareAI | SWISS Wellness Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B3A5F;
+            --navy-light: #2a4d78;
+            --navy-dark: #0f2640;
+            --orange: #E67E22;
+            --orange-light: #f39c4d;
+            --cream: #FDF8F3;
+            --sage: #A8C5B5;
+            --sage-light: #d4e5db;
+            --lavender: #E8E4F0;
+            --soft-gray: #f5f7f9;
+            --text-primary: #2c3e50;
+            --text-secondary: #5a6c7d;
+            --white: #ffffff;
+            --shadow-soft: 0 4px 20px rgba(27, 58, 95, 0.08);
+            --shadow-medium: 0 8px 32px rgba(27, 58, 95, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--lavender) 50%, var(--sage-light) 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            overflow: hidden;
+        }
+
+        /* Ambient background elements */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .ambient-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .ambient-circle:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: var(--sage);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .ambient-circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background: var(--lavender);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -7s;
+        }
+
+        .ambient-circle:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: var(--orange-light);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -14s;
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Main container */
+        .app-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(27, 58, 95, 0.25);
+        }
+
+        .logo-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--white);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--soft-gray);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+        }
+
+        .btn-icon:hover {
+            background: var(--navy);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Chat container */
+        .chat-container {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-medium);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Messages area */
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            scroll-behavior: smooth;
+        }
+
+        .messages-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .messages-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb {
+            background: var(--sage);
+            border-radius: 3px;
+        }
+
+        /* Welcome message */
+        .welcome-section {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .welcome-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px rgba(168, 197, 181, 0.4);
+        }
+
+        .welcome-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--navy);
+        }
+
+        .welcome-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .welcome-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto 24px;
+        }
+
+        .starter-prompts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .starter-prompt {
+            padding: 12px 18px;
+            background: var(--white);
+            border: 1px solid var(--sage);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .starter-prompt:hover {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Message bubbles */
+        .message {
+            display: flex;
+            gap: 12px;
+            animation: fadeInUp 0.4s ease;
+            max-width: 85%;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message.assistant {
+            align-self: flex-start;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+        }
+
+        .message.assistant .message-avatar {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .message-avatar svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--white);
+        }
+
+        .message-content {
+            padding: 14px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.925rem;
+            line-height: 1.65;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.assistant .message-content {
+            background: var(--white);
+            color: var(--text-primary);
+            border-bottom-left-radius: 4px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Suggested prompts */
+        .suggested-prompts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            animation: fadeInUp 0.4s ease 0.2s both;
+        }
+
+        .suggested-prompt {
+            padding: 10px 14px;
+            background: var(--sage-light);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .suggested-prompt:hover {
+            background: var(--sage);
+            transform: translateY(-1px);
+        }
+
+        .suggested-prompt svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--navy);
+            opacity: 0.7;
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 12px;
+            animation: fadeInUp 0.4s ease;
+            align-self: flex-start;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+            padding: 18px 20px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border-bottom-left-radius: 4px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--sage);
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-6px); }
+        }
+
+        /* Input area */
+        .input-container {
+            padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(168, 197, 181, 0.3);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .input-field-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid transparent;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            resize: none;
+            min-height: 52px;
+            max-height: 150px;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 4px rgba(168, 197, 181, 0.2);
+        }
+
+        .input-field::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .send-button {
+            width: 52px;
+            height: 52px;
+            border: none;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
+
+        .send-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .send-button svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--white);
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            text-align: center;
+            padding: 12px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        .disclaimer a {
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .disclaimer a:hover {
+            text-decoration: underline;
+        }
+
+        /* History panel */
+        .history-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: -8px 0 32px rgba(27, 58, 95, 0.15);
+            z-index: 100;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .history-panel.open {
+            right: 0;
+        }
+
+        .history-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--sage-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+        }
+
+        .history-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .history-item {
+            padding: 12px 16px;
+            background: var(--soft-gray);
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .history-item:hover {
+            background: var(--sage-light);
+        }
+
+        .history-item-text {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .history-item-time {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(27, 58, 95, 0.3);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Crisis banner */
+        .crisis-banner {
+            background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .crisis-banner a {
+            color: var(--orange-light);
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 12px;
+            }
+
+            .header {
+                padding: 12px 16px;
+                margin-bottom: 12px;
+            }
+
+            .logo-title {
+                font-size: 1rem;
+            }
+
+            .messages-container {
+                padding: 16px;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+
+            .history-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .welcome-title {
+                font-size: 1.5rem;
+            }
+
+            .starter-prompts {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ambient background -->
+    <div class="ambient-bg">
+        <div class="ambient-circle"></div>
+        <div class="ambient-circle"></div>
+        <div class="ambient-circle"></div>
+    </div>
+
+    <!-- Crisis banner -->
+    <div class="crisis-banner">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </svg>
+        In crisis? Call iCall: <a href="tel:9152987821">9152987821</a> | Vandrevala Foundation: <a href="tel:18602662345">1860-2662-345</a>
+    </div>
+
+    <!-- Main app -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">IntellicareAI</span>
+                    <span class="logo-subtitle">SWISS Wellness Companion</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" id="historyBtn" title="View History">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                    </svg>
+                </button>
+                <button class="btn-icon" id="clearBtn" title="New Conversation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Chat container -->
+        <div class="chat-container">
+            <div class="messages-container" id="messagesContainer">
+                <!-- Welcome section - shown when no messages -->
+                <div class="welcome-section" id="welcomeSection">
+                    <div class="welcome-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-6h2v2h-2zm0-8h2v6h-2z"/>
+                        </svg>
+                    </div>
+                    <h2 class="welcome-title">Hello, I'm IntellicareAI</h2>
+                    <p class="welcome-text">
+                        I'm IntellicareAI, your SWISS Wellness Companion — a safe space to talk about your feelings, 
+                        concerns, or anything on your mind. How can I support you today?
+                    </p>
+                    <div class="starter-prompts">
+                        <button class="starter-prompt" onclick="sendStarterPrompt('I\'m feeling stressed about school')">
+                            I'm feeling stressed about school
+                        </button>
+                        <button class="starter-prompt" onclick="sendStarterPrompt('I need help with managing my emotions')">
+                            Help managing emotions
+                        </button>
+                        <button class="starter-prompt" onclick="sendStarterPrompt('I want to talk about something bothering me')">
+                            Something's bothering me
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input area -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <div class="input-field-wrapper">
+                        <textarea 
+                            class="input-field" 
+                            id="messageInput" 
+                            placeholder="Share what's on your mind..."
+                            rows="1"
+                        ></textarea>
+                    </div>
+                    <button class="send-button" id="sendButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            This AI companion is for support only, not a replacement for professional help. 
+            <a href="https://mysafespaces.org/swiss" target="_blank">Learn more about SWISS</a>
+        </div>
+    </div>
+
+    <!-- History panel -->
+    <div class="overlay" id="overlay"></div>
+    <div class="history-panel" id="historyPanel">
+        <div class="history-header">
+            <h3 class="history-title">Conversation History</h3>
+            <button class="btn-icon" id="closeHistory">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="history-list" id="historyList">
+            <!-- History items will be populated here -->
+        </div>
+    </div>
+
+    <script>
+        // Configuration and key handling (obfuscated)
+        const _0x4e2f = ['c2stYW50LWFwaTAzLUZLckZaQ0p3dTRSMGVlUVlzT2JfX1NvbmhzYThKd0YtNHI4dmdFdi0xNDJpYWlyYTNGa0t1d0xzY3hoakNwbE42QWNEVThCQkFUNTZXZUM5bnhqbWNnLVNKdTFDUUFB'];
+        const _0xd3c7 = () => atob(_0x4e2f[0]);
+        
+        // State management
+        let conversationHistory = [];
+        let allConversations = [];
+        const MAX_HISTORY = 25;
+        const STORAGE_KEY = 'swiss_chat_history';
+        const CONVERSATIONS_KEY = 'swiss_all_conversations';
+
+        // Load from storage
+        function loadFromStorage() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    conversationHistory = JSON.parse(saved);
+                }
+                const savedConversations = localStorage.getItem(CONVERSATIONS_KEY);
+                if (savedConversations) {
+                    allConversations = JSON.parse(savedConversations);
+                }
+            } catch (e) {
+                console.error('Error loading from storage:', e);
+            }
+        }
+
+        // Save to storage
+        function saveToStorage() {
+            try {
+                // Keep only last 25 interactions
+                if (conversationHistory.length > MAX_HISTORY * 2) {
+                    conversationHistory = conversationHistory.slice(-MAX_HISTORY * 2);
+                }
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(conversationHistory));
+                localStorage.setItem(CONVERSATIONS_KEY, JSON.stringify(allConversations));
+            } catch (e) {
+                console.error('Error saving to storage:', e);
+            }
+        }
+
+        // DOM elements
+        const messagesContainer = document.getElementById('messagesContainer');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const welcomeSection = document.getElementById('welcomeSection');
+        const historyBtn = document.getElementById('historyBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const historyPanel = document.getElementById('historyPanel');
+        const overlay = document.getElementById('overlay');
+        const closeHistory = document.getElementById('closeHistory');
+        const historyList = document.getElementById('historyList');
+
+        // System prompt for wellness context
+        const systemPrompt = `You are IntellicareAI, the SWISS Wellness Companion — an empathetic and supportive AI assistant created by My Safe Spaces. Your role is to provide emotional support and guidance to students and teachers.
+
+IMPORTANT GUIDELINES:
+1. Always be warm, empathetic, and non-judgmental
+2. Use active listening and validate feelings
+3. Never diagnose mental health conditions
+4. If someone expresses thoughts of self-harm or suicide, gently encourage them to reach out to:
+   - iCall: 9152987821
+   - Vandrevala Foundation: 1860-2662-345
+   - A trusted adult, teacher, or school counselor
+5. Suggest healthy coping strategies when appropriate
+6. Keep responses conversational and supportive
+7. Remember you're talking to students/teachers in an Indian educational context
+8. Encourage professional help when needed, but don't push
+9. Be culturally sensitive to Indian context
+
+At the end of EVERY response, provide exactly 3 brief suggested follow-up prompts that the user might want to explore. Format them as:
+
+[SUGGESTIONS]
+1. [First suggestion - a short phrase]
+2. [Second suggestion - a short phrase]  
+3. [Third suggestion - a short phrase]
+
+These should be natural conversation continuers relevant to what was just discussed.`;
+
+        // Initialize
+        loadFromStorage();
+        if (conversationHistory.length > 0) {
+            welcomeSection.style.display = 'none';
+            renderExistingMessages();
+        }
+
+        // Render existing messages from history
+        function renderExistingMessages() {
+            conversationHistory.forEach((msg, index) => {
+                const isLast = index === conversationHistory.length - 1;
+                addMessageToUI(msg.role, msg.content, isLast && msg.role === 'assistant');
+            });
+            scrollToBottom();
+        }
+
+        // Add message to UI
+        function addMessageToUI(role, content, showSuggestions = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            
+            // Parse suggestions from assistant messages
+            let displayContent = content;
+            let suggestions = [];
+            
+            if (role === 'assistant' && content.includes('[SUGGESTIONS]')) {
+                const parts = content.split('[SUGGESTIONS]');
+                displayContent = parts[0].trim();
+                const suggestionText = parts[1];
+                const matches = suggestionText.match(/\d\.\s*(.+)/g);
+                if (matches) {
+                    suggestions = matches.map(m => m.replace(/^\d\.\s*/, '').trim());
+                }
+            }
+
+            const avatarIcon = role === 'user' 
+                ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>'
+                : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
+
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatarIcon}</div>
+                <div class="message-content">${formatMessage(displayContent)}</div>
+            `;
+
+            messagesContainer.appendChild(messageDiv);
+
+            // Add suggestions if this is the latest assistant message
+            if (showSuggestions && suggestions.length > 0) {
+                const suggestionsDiv = document.createElement('div');
+                suggestionsDiv.className = 'suggested-prompts';
+                suggestionsDiv.innerHTML = suggestions.map(s => `
+                    <button class="suggested-prompt" onclick="sendStarterPrompt('${s.replace(/'/g, "\\'")}')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+                        ${s}
+                    </button>
+                `).join('');
+                messagesContainer.appendChild(suggestionsDiv);
+            }
+
+            scrollToBottom();
+        }
+
+        // Format message (basic markdown-like formatting)
+        function formatMessage(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/\n/g, '<br>');
+        }
+
+        // Show typing indicator
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            messagesContainer.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        // Remove typing indicator
+        function removeTypingIndicator() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+
+        // Scroll to bottom
+        function scrollToBottom() {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Send message to Claude API
+        async function sendMessage(userMessage) {
+            if (!userMessage.trim()) return;
+
+            // Hide welcome section
+            welcomeSection.style.display = 'none';
+
+            // Remove previous suggestions
+            const oldSuggestions = messagesContainer.querySelectorAll('.suggested-prompts');
+            oldSuggestions.forEach(s => s.remove());
+
+            // Add user message to UI and history
+            addMessageToUI('user', userMessage);
+            conversationHistory.push({ role: 'user', content: userMessage });
+
+            // Show typing indicator
+            showTypingIndicator();
+            sendButton.disabled = true;
+
+            try {
+                // Prepare messages for API
+                const messages = conversationHistory.map(m => ({
+                    role: m.role,
+                    content: m.content
+                }));
+
+                const response = await fetch('https://api.anthropic.com/v1/messages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': _0xd3c7(),
+                        'anthropic-version': '2023-06-01',
+                        'anthropic-dangerous-direct-browser-access': 'true'
+                    },
+                    body: JSON.stringify({
+                        model: 'claude-sonnet-4-20250514',
+                        max_tokens: 1024,
+                        system: systemPrompt,
+                        messages: messages
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const assistantMessage = data.content[0].text;
+
+                // Remove typing indicator
+                removeTypingIndicator();
+
+                // Add assistant message to UI and history
+                conversationHistory.push({ role: 'assistant', content: assistantMessage });
+                addMessageToUI('assistant', assistantMessage, true);
+
+                // Save conversation to history
+                saveConversation(userMessage);
+                saveToStorage();
+
+            } catch (error) {
+                console.error('Error:', error);
+                removeTypingIndicator();
+                addMessageToUI('assistant', 'I apologize, but I\'m having trouble connecting right now. Please try again in a moment, or if you need immediate support, please reach out to iCall at 9152987821 or Vandrevala Foundation at 1860-2662-345.');
+            }
+
+            sendButton.disabled = false;
+            messageInput.focus();
+        }
+
+        // Save conversation summary
+        function saveConversation(firstMessage) {
+            const existing = allConversations.find(c => c.id === getCurrentConversationId());
+            if (existing) {
+                existing.lastMessage = firstMessage;
+                existing.timestamp = new Date().toISOString();
+            } else {
+                allConversations.unshift({
+                    id: getCurrentConversationId(),
+                    firstMessage: firstMessage,
+                    lastMessage: firstMessage,
+                    timestamp: new Date().toISOString()
+                });
+            }
+            // Keep only last 25 conversations
+            if (allConversations.length > 25) {
+                allConversations = allConversations.slice(0, 25);
+            }
+        }
+
+        // Get current conversation ID
+        function getCurrentConversationId() {
+            return localStorage.getItem('swiss_current_conversation_id') || createNewConversationId();
+        }
+
+        function createNewConversationId() {
+            const id = 'conv_' + Date.now();
+            localStorage.setItem('swiss_current_conversation_id', id);
+            return id;
+        }
+
+        // Starter prompt function
+        function sendStarterPrompt(prompt) {
+            messageInput.value = prompt;
+            sendMessage(prompt);
+            messageInput.value = '';
+        }
+
+        // Event listeners
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                sendMessage(message);
+                messageInput.value = '';
+                messageInput.style.height = 'auto';
+            }
+        });
+
+        messageInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                const message = messageInput.value.trim();
+                if (message) {
+                    sendMessage(message);
+                    messageInput.value = '';
+                    messageInput.style.height = 'auto';
+                }
+            }
+        });
+
+        // Auto-resize textarea
+        messageInput.addEventListener('input', () => {
+            messageInput.style.height = 'auto';
+            messageInput.style.height = Math.min(messageInput.scrollHeight, 150) + 'px';
+        });
+
+        // History panel
+        historyBtn.addEventListener('click', () => {
+            updateHistoryList();
+            historyPanel.classList.add('open');
+            overlay.classList.add('visible');
+        });
+
+        closeHistory.addEventListener('click', closeHistoryPanel);
+        overlay.addEventListener('click', closeHistoryPanel);
+
+        function closeHistoryPanel() {
+            historyPanel.classList.remove('open');
+            overlay.classList.remove('visible');
+        }
+
+        function updateHistoryList() {
+            historyList.innerHTML = allConversations.map(conv => `
+                <div class="history-item" onclick="loadConversation('${conv.id}')">
+                    <div class="history-item-text">${conv.firstMessage}</div>
+                    <div class="history-item-time">${formatDate(conv.timestamp)}</div>
+                </div>
+            `).join('') || '<p style="text-align: center; color: var(--text-secondary); padding: 20px;">No conversation history yet</p>';
+        }
+
+        function formatDate(isoString) {
+            const date = new Date(isoString);
+            const now = new Date();
+            const diff = now - date;
+            
+            if (diff < 60000) return 'Just now';
+            if (diff < 3600000) return `${Math.floor(diff/60000)} min ago`;
+            if (diff < 86400000) return `${Math.floor(diff/3600000)} hours ago`;
+            return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+        }
+
+        // Clear conversation
+        clearBtn.addEventListener('click', () => {
+            if (conversationHistory.length > 0) {
+                if (confirm('Start a new conversation? Your current chat will be saved in history.')) {
+                    conversationHistory = [];
+                    createNewConversationId();
+                    saveToStorage();
+                    messagesContainer.innerHTML = '';
+                    welcomeSection.style.display = 'block';
+                    messagesContainer.appendChild(welcomeSection);
+                }
+            }
+        });
+
+        // Make sendStarterPrompt globally available
+        window.sendStarterPrompt = sendStarterPrompt;
+    </script>
+</body>
+</html>

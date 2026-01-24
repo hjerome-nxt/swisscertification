@@ -24,6 +24,8 @@
             --gray-600: #6c757d;
             --gray-800: #343a40;
             --success: #27ae60;
+            --purple: #8B7FB0;
+            --blue: #3498db;
             --font-display: 'Crimson Pro', Georgia, serif;
             --font-body: 'DM Sans', -apple-system, sans-serif;
         }
@@ -146,6 +148,155 @@
 
         .nav-center a:hover {
             color: var(--orange);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--navy);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item > a:hover {
+            color: var(--orange);
+            background: var(--orange-glow);
+        }
+
+        .nav-item > a svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover > a svg {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(27, 58, 95, 0.15);
+            padding: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border: 1px solid var(--gray-200);
+        }
+
+        .nav-item:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-800);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-dropdown a:hover {
+            background: var(--orange-glow);
+            color: var(--orange);
+        }
+
+        .nav-dropdown-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .nav-dropdown-icon.yellow { background: linear-gradient(135deg, #F4E4A6, #E8D896); }
+        .nav-dropdown-icon.pink { background: linear-gradient(135deg, #E8B4C7, #D9A5B8); }
+        .nav-dropdown-icon.green { background: linear-gradient(135deg, #7FB069, #6FA059); }
+        .nav-dropdown-icon.purple { background: linear-gradient(135deg, #8B7FB0, #7B6FA0); }
+        .nav-dropdown-icon.orange { background: var(--orange-glow); }
+        .nav-dropdown-icon.blue { background: rgba(52, 152, 219, 0.15); }
+
+        .nav-dropdown-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-dropdown-text span {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .nav-dropdown-text small {
+            font-size: 11px;
+            color: var(--gray-600);
+            font-weight: 400;
+        }
+
+        .nav-dropdown a:hover .nav-dropdown-text span {
+            color: var(--orange);
+        }
+
+        .nav-dropdown-divider {
+            height: 1px;
+            background: var(--gray-200);
+            margin: 8px 0;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1002;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
         .nav-right {
@@ -384,63 +535,6 @@
             font-size: 14px;
             color: var(--gray-600);
             line-height: 1.4;
-        }
-
-        .hero-floating {
-            position: absolute;
-            background: var(--white);
-            padding: 16px 24px;
-            border-radius: 16px;
-            box-shadow: 0 12px 40px rgba(27, 58, 95, 0.15);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: float 6s ease-in-out infinite;
-            z-index: 10;
-        }
-
-        .hero-floating-1 {
-            top: -30px;
-            right: -30px;
-            animation-delay: 0s;
-        }
-
-        .hero-floating-2 {
-            bottom: -30px;
-            left: -30px;
-            animation-delay: 2s;
-        }
-
-        .hero-floating-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-floating-icon.orange {
-            background: var(--orange-glow);
-            color: var(--orange);
-        }
-
-        .hero-floating-icon.navy {
-            background: rgba(27, 58, 95, 0.1);
-            color: var(--navy);
-        }
-
-        .hero-floating-text {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        .hero-floating-text span {
-            display: block;
-            font-size: 11px;
-            font-weight: 400;
-            color: var(--gray-600);
         }
 
         /* Crisis Section */
@@ -1693,6 +1787,55 @@
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .nav-center {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 40px rgba(27, 58, 95, 0.15);
+                gap: 0;
+            }
+
+            .nav-center.active {
+                display: flex;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-item > a {
+                justify-content: space-between;
+                padding: 14px 16px;
+            }
+
+            .nav-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 0 20px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-item.active .nav-dropdown {
+                max-height: 500px;
+            }
+
+            .nav-item.active > a svg {
+                transform: rotate(180deg);
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero-grid,
             .problem-grid,
@@ -1732,7 +1875,19 @@
         }
 
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .nav-center {
+                display: none;
+            }
+
+            .nav-center.active {
+                display: flex;
+            }
+
+            .nav-sos {
                 display: none;
             }
 
@@ -1768,10 +1923,6 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .hero-floating {
-                display: none;
-            }
-
             .accreditation-logos {
                 flex-direction: column;
                 gap: 24px;
@@ -1780,6 +1931,11 @@
             .footer-main {
                 grid-template-columns: 1fr;
                 gap: 32px;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
             }
 
             .footer-newsletter {
@@ -1790,6 +1946,11 @@
             .footer-newsletter-form {
                 max-width: 100%;
                 flex-direction: column;
+                width: 100%;
+            }
+
+            .footer-newsletter-form input {
+                min-width: 100%;
             }
 
             .footer-bottom {
@@ -2125,34 +2286,327 @@
                 gap: 16px;
             }
         }
+        /* IntellicareAI Hero Card */
+        .intellicare-hero-card {
+            display: block;
+            position: relative;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(27, 58, 95, 0.25);
+            transition: all 0.4s ease;
+            animation: fadeInRight 1s ease-out 0.2s both;
+        }
+
+        .intellicare-hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(230, 126, 34, 0.3);
+        }
+
+        .intellicare-hero-glow {
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.4) 0%, transparent 70%);
+            pointer-events: none;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .intellicare-hero-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intellicare-hero-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+
+        .intellicare-hero-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .intellicare-hero-text {
+            flex: 1;
+        }
+
+        .intellicare-hero-badge {
+            display: inline-block;
+            background: rgba(230, 126, 34, 0.2);
+            color: var(--orange-light);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 6px;
+        }
+
+        .intellicare-hero-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .intellicare-hero-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .intellicare-hero-arrow {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .intellicare-hero-card:hover .intellicare-hero-arrow {
+            background: var(--orange);
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .intellicare-hero-card {
+                padding: 20px;
+            }
+
+            .intellicare-hero-content {
+                flex-wrap: wrap;
+            }
+
+            .intellicare-hero-icon {
+                width: 44px;
+                height: 44px;
+            }
+
+            .intellicare-hero-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .intellicare-hero-title {
+                font-size: 17px;
+            }
+
+            .intellicare-hero-arrow {
+                display: none;
+            }
+        }
+
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-inner">
-                <a href="https://mysafespaces.org" class="nav-logo" target="_blank">
+                <a href="https://mysafespaces.org" class="nav-logo">
                     <img src="https://static.wixstatic.com/media/56ddd9_33b6f28e550c4d47b5769babe26a08d2~mv2.png" alt="My Safe Spaces" class="nav-logo-img">
                     <span class="nav-logo-text">SWISS</span>
                 </a>
+                
                 <ul class="nav-center">
-                    <li><a href="#crisis">The Crisis</a></li>
-                    <li><a href="#solution">Solution</a></li>
-                    <li><a href="#evidence">Research</a></li>
-                    <li><a href="#parent-voices">Parents</a></li>
-                    <li><a href="#seal">Certification</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li class="nav-item">
+                        <a href="#programs">
+                            Programs
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="https://swiss.mysafespaces.org">
+                                <div class="nav-dropdown-icon yellow">🏫</div>
+                                <div class="nav-dropdown-text">
+                                    <span>SWISS</span>
+                                    <small>K-12 School Certification</small>
+                                </div>
+                            </a>
+                            <a href="https://swisshighered.mysafespaces.org">
+                                <div class="nav-dropdown-icon purple">🎓</div>
+                                <div class="nav-dropdown-text">
+                                    <span>SWISS HigherED</span>
+                                    <small>College & University</small>
+                                </div>
+                            </a>
+                            <a href="https://crew.mysafespaces.org">
+                                <div class="nav-dropdown-icon green">🏢</div>
+                                <div class="nav-dropdown-text">
+                                    <span>CREW</span>
+                                    <small>Workplace Certification</small>
+                                </div>
+                            </a>
+                            <a href="https://elevate.mysafespaces.org">
+                                <div class="nav-dropdown-icon orange">⭐</div>
+                                <div class="nav-dropdown-text">
+                                    <span>ELEVATE</span>
+                                    <small>Professional Fellowship</small>
+                                </div>
+                            </a>
+                            <div class="nav-dropdown-divider"></div>
+                            <a href="https://mysafespaces.org/counseling">
+                                <div class="nav-dropdown-icon pink">💜</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Counseling Services</span>
+                                    <small>Professional Support</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#organizations">
+                            For Organizations
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="https://education.mysafespaces.org">
+                                <div class="nav-dropdown-icon yellow">🏫</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Education</span>
+                                    <small>Schools & Colleges</small>
+                                </div>
+                            </a>
+                            <a href="https://intellicareai.mysafespaces.org">
+                                <div class="nav-dropdown-icon pink">💜</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Personal</span>
+                                    <small>Individual Wellness</small>
+                                </div>
+                            </a>
+                            <a href="https://crew.mysafespaces.org">
+                                <div class="nav-dropdown-icon green">🏢</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Workplace</span>
+                                    <small>Corporate Wellness</small>
+                                </div>
+                            </a>
+                            <a href="https://elevate.mysafespaces.org">
+                                <div class="nav-dropdown-icon purple">🎓</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Professional</span>
+                                    <small>MH Professionals</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#learn">
+                            Learn and Grow
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="https://thrive.mysafespaces.org">
+                                <div class="nav-dropdown-icon orange">📚</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Thrive Academy</span>
+                                    <small>Online Learning Platform</small>
+                                </div>
+                            </a>
+                            <a href="https://blog.mysafespaces.org">
+                                <div class="nav-dropdown-icon blue">📝</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Blog</span>
+                                    <small>Articles & Insights</small>
+                                </div>
+                            </a>
+                            <a href="https://mysafespaces.org/webinars-recordings">
+                                <div class="nav-dropdown-icon purple">🎥</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Webinars</span>
+                                    <small>Live & Recorded Sessions</small>
+                                </div>
+                            </a>
+                            <a href="https://mysafespaces.org/event-list">
+                                <div class="nav-dropdown-icon green">📅</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Events</span>
+                                    <small>Upcoming Programs</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about">
+                            About Us
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="https://mysafespaces.org/our-story">
+                                <div class="nav-dropdown-icon orange">📖</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Our Story</span>
+                                    <small>Mission & Vision</small>
+                                </div>
+                            </a>
+                            <a href="https://mysafespaces.org/leadership">
+                                <div class="nav-dropdown-icon purple">👥</div>
+                                <div class="nav-dropdown-text">
+                                    <span>The Leadership Team</span>
+                                    <small>Meet Our Leaders</small>
+                                </div>
+                            </a>
+                            <a href="https://mysafespaces.org/certification-council">
+                                <div class="nav-dropdown-icon yellow">🏆</div>
+                                <div class="nav-dropdown-text">
+                                    <span>Certification Council</span>
+                                    <small>SWISS Governance</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
                 </ul>
+                
                 <div class="nav-right">
                     <a href="tel:112" class="nav-sos">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/>
                         </svg>
-                        SOS
+                        Crisis: 112
                     </a>
-                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Inquiry" class="nav-cta">Get Started</a>
+                    <a href="#contact" class="nav-cta">Get Started</a>
                 </div>
+
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -2170,7 +2624,7 @@
                         SWISS Certification transforms every teacher into a trained gatekeeper"”equipped to recognize distress, respond appropriately, and protect student wellbeing.
                     </p>
                     <div class="hero-ctas">
-                        <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Discovery%20Call" class="btn btn-primary">
+                        <a href="/cdn-cgi/l/email-protection#b2c1c5dbc1c1f2dfcbc1d3d4d7c1c2d3d1d7c19cddc0d58dc1c7d0d8d7d1c68fe1e5fbe1e1978082f1d7c0c6dbd4dbd1d3c6dbdddc978082f6dbc1d1ddc4d7c0cb978082f1d3dede" class="btn btn-primary">
                             Schedule Discovery Call
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2182,6 +2636,31 @@
                     </div>
                 </div>
                 <div class="hero-visual">
+                    <!-- IntellicareAI Card -->
+                    <a href="https://intellicareai.mysafespaces.org" class="intellicare-hero-card" target="_blank">
+                        <div class="intellicare-hero-glow"></div>
+                        <div class="intellicare-hero-content">
+                            <div class="intellicare-hero-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="9" cy="10" r="1" fill="currentColor"/>
+                                    <circle cx="15" cy="10" r="1" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="intellicare-hero-text">
+                                <div class="intellicare-hero-badge">NEW — AI Wellness Companion</div>
+                                <h3 class="intellicare-hero-title">Try IntellicareAI</h3>
+                                <p class="intellicare-hero-desc">24/7 emotional support for students & teachers</p>
+                            </div>
+                            <div class="intellicare-hero-arrow">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                    
                     <div class="hero-card">
                         <div class="hero-stat-grid">
                             <div class="hero-stat">
@@ -2200,29 +2679,6 @@
                                 <div class="hero-stat-number">12</div>
                                 <div class="hero-stat-label">Months to full school certification</div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="hero-floating hero-floating-1">
-                        <div class="hero-floating-icon orange">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                        </div>
-                        <div class="hero-floating-text">
-                            CPD Accredited
-                            <span>Provider #50828</span>
-                        </div>
-                    </div>
-                    <div class="hero-floating hero-floating-2">
-                        <div class="hero-floating-icon navy">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            </svg>
-                        </div>
-                        <div class="hero-floating-text">
-                            Crisis Support
-                            <span>24/7 for certified schools</span>
                         </div>
                     </div>
                 </div>
@@ -2897,7 +3353,7 @@
                 </ul>
 
                 <div class="pricing-cta">
-                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Pricing%20Request" class="btn btn-primary">
+                    <a href="/cdn-cgi/l/email-protection#97e4e0fee4e4d7faeee4f6f1f2e4e7f6f4f2e4b9f8e5f0a8e4e2f5fdf2f4e3aac4c0dec4c4b2a5a7d4f2e5e3fef1fef4f6e3fef8f9b2a5a7c7e5fef4fef9f0b2a5a7c5f2e6e2f2e4e3" class="btn btn-primary">
                         Request Pricing
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2918,7 +3374,7 @@
                 <p class="section-subtitle">Schedule a 30-minute discovery call to assess your school's needs and create a customized implementation roadmap.</p>
                 
                 <div class="cta-buttons">
-                    <a href="mailto:swiss@mysafespaces.org?subject=SWISS%20Certification%20Discovery%20Call" class="btn btn-primary">
+                    <a href="/cdn-cgi/l/email-protection#1f6c68766c6c5f72666c7e797a6c6f7e7c7a6c31706d78206c6a7d757a7c6b224c48564c4c3a2d2f5c7a6d6b7679767c7e6b7670713a2d2f5b766c7c70697a6d663a2d2f5c7e7373" class="btn btn-primary">
                         Schedule Discovery Call
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -2927,12 +3383,12 @@
                 </div>
 
                 <div class="cta-contact">
-                    <a href="mailto:swiss@mysafespaces.org" class="cta-contact-item">
+                    <a href="/cdn-cgi/l/email-protection#84f7f3edf7f7c4e9fdf7e5e2e1f7f4e5e7e1f7aaebf6e3" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        swiss@mysafespaces.org
+                        <span class="__cf_email__" data-cfemail="98ebeff1ebebd8f5e1ebf9fefdebe8f9fbfdebb6f7eaff">[email&#160;protected]</span>
                     </a>
                     <a href="tel:+918062689525" class="cta-contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2954,79 +3410,80 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-main">
                 <div class="footer-brand-col">
-                    <a href="https://mysafespaces.org" target="_blank">
+                    <a href="https://mysafespaces.org">
                         <img src="https://static.wixstatic.com/media/56ddd9_33b6f28e550c4d47b5769babe26a08d2~mv2.png" alt="My Safe Spaces" class="footer-logo-img" style="filter: brightness(0) invert(1);">
                     </a>
                     <p class="footer-description">Supporting mental wellness through compassionate care, innovative AI tools, and certified professionals who truly understand you.</p>
                     <a href="mailto:info@mysafespaces.org" class="footer-email">info@mysafespaces.org</a>
                     <div class="footer-social">
-                        <a href="https://www.instagram.com/mysafe_spaces" target="_blank" aria-label="Instagram">
+                        <a href="https://www.instagram.com/mysafe_spaces" aria-label="Instagram">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                             </svg>
                         </a>
-                        <a href="https://www.facebook.com/mysafe_spaces" target="_blank" aria-label="Facebook">
+                        <a href="https://www.facebook.com/mysafe_spaces" aria-label="Facebook">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                             </svg>
                         </a>
-                        <a href="http://www.youtube.com/@MySafeSpaces" target="_blank" aria-label="YouTube">
+                        <a href="http://www.youtube.com/@MySafeSpaces" aria-label="YouTube">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
                                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
                             </svg>
                         </a>
-                        <a href="https://www.linkedin.com/company/mysafespaces/" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/mysafespaces/" aria-label="LinkedIn">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                                 <rect x="2" y="9" width="4" height="12"/>
                                 <circle cx="4" cy="4" r="2"/>
                             </svg>
                         </a>
-                        <a href="https://x.com/mysafe_spaces" target="_blank" aria-label="Twitter/X">
+                        <a href="https://x.com/mysafe_spaces" aria-label="Twitter/X">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
                             </svg>
                         </a>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.mysafespaces" target="_blank" class="footer-app-badge">
+                    <a href="https://play.google.com/store/apps/details?id=com.mysafespaces" class="footer-app-badge">
                         <img src="https://static.wixstatic.com/media/56ddd9_3d10278451d84745937b171d5287b28d~mv2.png/v1/fill/w_135,h_40,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play">
                     </a>
                 </div>
 
                 <div class="footer-col">
-                    <h4>My Safe Spaces</h4>
+                    <h4>Solutions</h4>
                     <ul>
-                        <li><a href="https://mysafespaces.org/aboutus" target="_blank">About Us</a></li>
-                        <li><a href="https://mysafespaces.org/careers" target="_blank">Careers</a></li>
-                        <li><a href="https://mysafespaces.org/blog" target="_blank">Blog</a></li>
-                        <li><a href="https://mysafespaces.org/event-list" target="_blank">Events</a></li>
+                        <li><a href="https://swiss.mysafespaces.org">Educational Wellness</a></li>
+                        <li><a href="https://intellicareai.mysafespaces.org">Personal Empowerment</a></li>
+                        <li><a href="https://crew.mysafespaces.org">Workplace Wellness</a></li>
+                        <li><a href="https://elevate.mysafespaces.org">Professional Development</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4>For Organizations</h4>
+                    <h4>Company</h4>
                     <ul>
-                        <li><a href="https://mysafespaces.org/education" target="_blank">Schools & Colleges</a></li>
-                        <li><a href="https://swiss.mysafespaces.org" target="_blank">SWISS Certification</a></li>
-                        <li><a href="https://mysafespaces.org/corporate" target="_blank">Workplace Wellness</a></li>
-                        <li><a href="https://mysafespaces.org/sessions" target="_blank">Professional Training</a></li>
+                        <li><a href="https://mysafespaces.org/our-story">About Us</a></li>
+                        <li><a href="https://mysafespaces.org/leadership">Leadership</a></li>
+                        <li><a href="https://mysafespaces.org/careers">Careers</a></li>
+                        <li><a href="https://blog.mysafespaces.org">Blog</a></li>
+                        <li><a href="https://mysafespaces.org/event-list">Events</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4>Learn & Grow</h4>
                     <ul>
-                        <li><a href="https://thrive.mysafespaces.org" target="_blank">Thrive Academy</a></li>
-                        <li><a href="https://mysafespaces.org/webinars-recordings" target="_blank">Webinars</a></li>
-                        <li><a href="https://mysafespaces.org/digitalmaze" target="_blank">On Social Media</a></li>
-                        <li><a href="https://mysafespaces.org/blog" target="_blank">Blog</a></li>
+                        <li><a href="https://thrive.mysafespaces.org">Thrive Academy</a></li>
+                        <li><a href="https://mysafespaces.org/webinars-recordings">Webinars</a></li>
+                        <li><a href="https://mysafespaces.org/digitalmaze">On Social Media</a></li>
+                        <li><a href="https://blog.mysafespaces.org">Blog</a></li>
                     </ul>
 
                     <div class="footer-crisis">
@@ -3040,7 +3497,7 @@
             <div class="footer-newsletter">
                 <div class="footer-newsletter-text">
                     <h4>Subscribe to our newsletter</h4>
-                    <p>Stay updated on mental health resources and school safety news</p>
+                    <p>Stay updated on mental health resources and safety news</p>
                 </div>
                 <form class="footer-newsletter-form" action="https://mysafespaces.org" method="get">
                     <input type="email" placeholder="Enter your email" required>
@@ -3050,12 +3507,12 @@
 
             <div class="footer-bottom">
                 <div class="footer-copyright">
-                    © 2026 MySafeSpaces. All rights reserved.
+                    © 2026 NxtGen Technologies LLC. All rights reserved.
                 </div>
                 <div class="footer-links">
-                    <a href="https://mysafespaces.org/privacy-policy" target="_blank">Privacy Policy</a>
-                    <a href="https://mysafespaces.org/terms-and-conditions" target="_blank">Terms & Conditions</a>
-                    <a href="https://mysafespaces.org/accessibility-statement-1" target="_blank">Refund Policy</a>
+                    <a href="https://mysafespaces.org/privacy-policy">Privacy Policy</a>
+                    <a href="https://mysafespaces.org/terms-and-conditions">Terms & Conditions</a>
+                    <a href="https://mysafespaces.org/accessibility-statement-1">Accessibility</a>
                 </div>
             </div>
         </div>
@@ -3065,20 +3522,68 @@
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
         });
 
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navCenter = document.querySelector('.nav-center');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navCenter.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+        }
+
+        // Mobile dropdown toggle
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            const link = item.querySelector('a');
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    item.classList.toggle('active');
+                    
+                    // Close other dropdowns
+                    navItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target)) {
+                navCenter.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                   
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        navCenter.classList.remove('active');
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
